@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://Assets/Sprites/GUI/generic.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/generic_letter.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 12.7111, 13.2959 )
+
+[node name="letter_container" type="TouchScreenButton"]
+
+normal = ExtResource( 1 )
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+script/script = ExtResource( 2 )
+
+[node name="collision_shape" type="Area2D" parent="."]
+
+transform/pos = Vector2( 64, 64 )
+transform/scale = Vector2( 1.96875, 1.96875 )
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 2.63736, 0, 0, 2.44496, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collision_shape"]
+
+transform/scale = Vector2( 2.63736, 2.44496 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+[connection signal="pressed" from="." to="." method="_on_letter_container_pressed"]
+
+[connection signal="released" from="." to="." method="_on_letter_container_released"]
+
+

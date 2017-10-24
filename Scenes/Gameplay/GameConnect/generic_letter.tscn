@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://Scenes/Gameplay/GameConnect/generic_letter.gd" type="Script" id=1]
+
+[node name="generic_letter" type="Sprite"]
+
+[node name="node_touch" type="TouchScreenButton" parent="."]
+
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+script/script = ExtResource( 1 )
+
+[connection signal="pressed" from="node_touch" to="node_touch" method="_on_node_touch_pressed"]
+
+[connection signal="released" from="node_touch" to="node_touch" method="_on_node_touch_released"]
+
+

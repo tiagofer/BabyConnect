@@ -1,0 +1,213 @@
+[gd_scene load_steps=14 format=1]
+
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/main_connect.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/Backgrounds/background_gameplay.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/GUI/right_container.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/victory_control.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Sprites/Letters/a.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Letters/e.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Letters/i.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Containers/letter_container.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Containers/object_container.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/collision_detect.gd" type="Script" id=10]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "show_pos1"
+length = 0.7
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("pos_1:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "show_pos2"
+length = 0.7
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("pos_2:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource/name = "show_pos3"
+length = 0.7
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("pos_3:transform/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": FloatArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+
+[node name="Control" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 1 )
+
+[node name="bck_game" type="TextureFrame" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 1280.0
+margin/bottom = 720.0
+texture = ExtResource( 2 )
+stretch_mode = 0
+
+[node name="right_container" type="Sprite" parent="bck_game"]
+
+visibility/opacity = 0.8
+transform/pos = Vector2( 1151.63, 360 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="victory_control" type="Node2D" parent="."]
+
+script/script = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="victory_control"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
+
+[node name="container" type="Node2D" parent="."]
+
+[node name="pos_1" type="Sprite" parent="container"]
+
+transform/pos = Vector2( 1150, 130 )
+texture = ExtResource( 5 )
+
+[node name="pos_2" type="Sprite" parent="container"]
+
+transform/pos = Vector2( 1151.61, 367.791 )
+texture = ExtResource( 6 )
+
+[node name="pos_3" type="Sprite" parent="container"]
+
+transform/pos = Vector2( 1150.1, 595.399 )
+texture = ExtResource( 7 )
+
+[node name="unions" type="AnimationPlayer" parent="container"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/show_pos1 = SubResource( 1 )
+anims/show_pos2 = SubResource( 2 )
+anims/show_pos3 = SubResource( 3 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="letter_container" type="Node2D" parent="."]
+
+[node name="pos_1" parent="letter_container" groups=[
+"pos_1",
+] instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 90, 70 )
+
+[node name="collision_shape" parent="letter_container/pos_1" groups=[
+"pos_1",
+]]
+
+[node name="pos_2" parent="letter_container" groups=[
+"pos_2",
+] instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 90, 290 )
+
+[node name="collision_shape" parent="letter_container/pos_2" groups=[
+"pos_2",
+]]
+
+[node name="pos_3" parent="letter_container" groups=[
+"pos_3",
+] instance=ExtResource( 8 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 90, 530 )
+
+[node name="collision_shape" parent="letter_container/pos_3" groups=[
+"pos_3",
+]]
+
+[node name="object_container" type="Node2D" parent="."]
+
+[node name="pos_1" parent="object_container" groups=[
+"pos_1",
+] instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 900, 130 )
+transform/scale = Vector2( 1.4375, 1.4375 )
+script/script = ExtResource( 10 )
+
+[node name="pos_2" parent="object_container" groups=[
+"pos_2",
+] instance=ExtResource( 9 )]
+
+editor/display_folded = true
+transform/pos = Vector2( 900, 350 )
+transform/scale = Vector2( 1.4375, 1.59375 )
+script/script = ExtResource( 10 )
+
+[node name="pos_3" parent="object_container" groups=[
+"pos_3",
+] instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 900, 590 )
+transform/scale = Vector2( 1.4375, 1.59375 )
+script/script = ExtResource( 10 )
+
+[connection signal="area_enter" from="object_container/pos_1" to="object_container/pos_1" method="_on_pos_1_area_enter"]
+
+[connection signal="area_enter" from="object_container/pos_2" to="object_container/pos_2" method="_on_pos_2_area_enter"]
+
+[connection signal="area_enter" from="object_container/pos_3" to="object_container/pos_3" method="_on_pos_3_area_enter"]
+
+
+[editable path="letter_container/pos_1"]
+[editable path="letter_container/pos_2"]
+[editable path="letter_container/pos_3"]
+[editable path="object_container/pos_2"]

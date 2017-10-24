@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Scenes/Menu/Cloud.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/GUI/spr_cloud2.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/GUI/spr_cloud1.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Menu/Cloud2.tres" type="Animation" id=4]
+
+[node name="Cloud" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="middle" type="Node2D" parent="."]
+
+transform/pos = Vector2( 2236.54, 256.893 )
+transform/scale = Vector2( 0.0945946, 0.10753 )
+
+[node name="cloud1" type="Sprite" parent="middle"]
+
+transform/pos = Vector2( -8562.86, 0 )
+transform/scale = Vector2( 1.09965, 0.967366 )
+texture = ExtResource( 2 )
+
+[node name="cloud3" type="Sprite" parent="middle"]
+
+texture = ExtResource( 3 )
+
+[node name="front" type="Sprite" parent="."]
+
+transform/pos = Vector2( 1057.88, 329.053 )
+transform/scale = Vector2( 0.121622, 0.121622 )
+texture = ExtResource( 3 )
+
+[node name="back" type="Node2D" parent="."]
+
+transform/pos = Vector2( -433.513, 21.7272 )
+
+[node name="cloud3 2" type="Sprite" parent="back"]
+
+transform/pos = Vector2( 1450, 200 )
+transform/scale = Vector2( 0.0480769, 0.0480769 )
+texture = ExtResource( 2 )
+
+[node name="cloud33" type="Sprite" parent="back"]
+
+transform/pos = Vector2( 1197.24, 128.564 )
+transform/scale = Vector2( 0.0480769, 0.0480769 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="back"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/cloud_moveB = ExtResource( 4 )
+playback/active = true
+playback/speed = 0.1
+blend_times = [  ]
+autoplay = "cloud_moveB"
+
+
