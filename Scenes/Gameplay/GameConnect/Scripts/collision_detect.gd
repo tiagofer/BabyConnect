@@ -6,6 +6,7 @@ onready var pos_3 = get_node("/root/Control/container/pos_3")
 
 var anim
 
+
 func _ready():
 	anim = get_node("/root/Control/container/unions")
 	pass

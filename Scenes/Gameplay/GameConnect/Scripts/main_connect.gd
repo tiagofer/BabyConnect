@@ -43,6 +43,10 @@ var unions = [cn_a, cn_e, cn_i,cn_o, cn_u]
 var random_y = [140, 370, 600] 
 
 func _ready():
+	
+	#reset points
+	global.score = 0
+	
 	_hide_unions()
 	var y = 120
 	var i = 0
