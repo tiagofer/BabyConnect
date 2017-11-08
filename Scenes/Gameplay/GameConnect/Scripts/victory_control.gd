@@ -7,12 +7,10 @@ var stars = preload("res://Scenes/Gameplay/GameConnect/Containers/star_victory.t
  
 
 func _ready():
- 
 	set_process(true)
 	pass
 
 func _process(delta):
- 
 	if (global.score==3):
 		var temp = stars.instance()
 		add_child(temp)

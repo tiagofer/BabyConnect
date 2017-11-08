@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://Assets/Sprites/GUI/generic.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/generic_letter.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sounds/touch_letter.ogg" type="AudioStream" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -40,6 +41,17 @@ transform/scale = Vector2( 2.63736, 2.44496 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
+
+[node name="touch" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 3 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 [connection signal="pressed" from="." to="." method="_on_letter_container_pressed"]
 

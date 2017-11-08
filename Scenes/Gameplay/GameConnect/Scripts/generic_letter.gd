@@ -8,8 +8,8 @@ func _input(event):
 			set_pos(event.pos)
 
 
-
 func _on_letter_container_pressed():
+	get_node("touch").play()
 	is_touched = true
 	pass # replace with function body
 

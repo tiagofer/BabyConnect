@@ -10,35 +10,13 @@ onready var obj2 = get_node("object_container/pos_2").get_child(1)
 onready var obj3 = get_node("object_container/pos_3").get_child(1)
 
 
-#LETTERS RESOURCES
-var let_a = preload("res://Assets/Sprites/Letters/spr_letterA.png")
-var let_e = preload("res://Assets/Sprites/Letters/spr_letterE.png")
-var let_i = preload("res://Assets/Sprites/Letters/spr_letterI.png")
-var let_o = preload("res://Assets/Sprites/Letters/spr_letterO.png")
-var let_u = preload("res://Assets/Sprites/Letters/spr_letterU.png")
-
-#OBJECTS RESOURCES
-var obj_a = preload("res://Assets/Sprites/Elements/spr_pineaple.png")
-var obj_e = preload("res://Assets/Sprites/Elements/spr_elephant.png")
-var obj_i = preload("res://Assets/Sprites/Elements/spr_indian.png")
-var obj_o = preload("res://Assets/Sprites/Elements/spr_egg.png")
-var obj_u = preload("res://Assets/Sprites/Elements/spr_greap.png")
-
-#UNION RESOURCES
-var cn_a = preload("res://Assets/Sprites/Letters/a.png")
-var cn_e = preload("res://Assets/Sprites/Letters/e.png")
-var cn_i = preload("res://Assets/Sprites/Letters/i.png")
-var cn_o = preload("res://Assets/Sprites/Letters/o.png")
-var cn_u = preload("res://Assets/Sprites/Letters/u.png")
-
 onready var pos_1 = get_node("/root/Control/container/pos_1")
 onready var pos_2 = get_node("/root/Control/container/pos_2")
 onready var pos_3 = get_node("/root/Control/container/pos_3")
 
-
-var letters = [let_a, let_e, let_i, let_o, let_u]
-var objects = [obj_a, obj_e, obj_i, obj_o, obj_u]
-var unions = [cn_a, cn_e, cn_i,cn_o, cn_u] 
+var letters = Array()
+var objects = Array()
+var unions = Array()
 
 var random_y = [140, 370, 600] 
 
@@ -46,6 +24,9 @@ func _ready():
 	
 	#reset points
 	global.score = 0
+	letters = _preload_resources("res://Assets/Sprites/Letters")
+	objects = _preload_resources("res://Assets/Sprites/Elements")
+	unions = _preload_resources("res://Assets/Sprites/UnionsLetters")
 	
 	_hide_unions()
 	var y = 120
@@ -98,3 +79,23 @@ func _hide_unions():
 	pos_1.hide()
 	pos_2.hide()
 	pos_3.hide()
+
+func _on_return_pressed():
+	loading.goto_scene("res://Scenes/Menu/play_menu.tscn")
+	pass # replace with function body
+	
+
+func _preload_resources(var dirPath):
+	var resource = Array()
+	var dir = Directory.new()
+	dir.open(dirPath)
+	dir.list_dir_begin()
+	var file_name = dir.get_next()
+	while(file_name!=""): 
+		if dir.current_is_dir():
+			pass
+		else:
+			var obj = load(dirPath+"/"+file_name)
+			resource.append(obj)
+		file_name = dir.get_next()
+	return resource

@@ -1,16 +1,19 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=18 format=1]
 
 [ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/main_connect.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Backgrounds/background_gameplay.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/GUI/right_container.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/victory_control.gd" type="Script" id=4]
-[ext_resource path="res://Assets/Sprites/Letters/a.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/Letters/e.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/Letters/i.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/Gameplay/GameConnect/Containers/letter_container.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Gameplay/GameConnect/Containers/object_container.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/collision_detect.gd" type="Script" id=10]
-[ext_resource path="res://Scenes/Loading/loading.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Sprites/UnionsLetters/abacaxi.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/UnionsLetters/elephant.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/UnionsLetters/indio.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sounds/congrats.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Containers/letter_container.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Containers/object_container.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Gameplay/GameConnect/Scripts/collision_detect.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Loading/loading.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Music/connect_song.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/Sprites/GUI/return.png" type="Texture" id=14]
 
 [sub_resource type="Animation" id=1]
 
@@ -93,17 +96,12 @@ stretch_mode = 0
 visibility/opacity = 0.9
 transform/pos = Vector2( 1151.63, 360 )
 texture = ExtResource( 3 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="victory_control" type="Node2D" parent="."]
 
 script/script = ExtResource( 4 )
 
 [node name="container" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="pos_1" type="Sprite" parent="container"]
 
@@ -133,15 +131,25 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
+[node name="congrats" type="StreamPlayer" parent="container"]
+
+stream/stream = ExtResource( 8 )
+stream/play = false
+stream/loop = false
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
 [node name="letter_container" type="Node2D" parent="."]
 
 editor/display_folded = true
 
 [node name="pos_1" parent="letter_container" groups=[
 "pos_1",
-] instance=ExtResource( 8 )]
+] instance=ExtResource( 9 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 90, 70 )
 
 [node name="collision_shape" parent="letter_container/pos_1" groups=[
@@ -150,7 +158,7 @@ transform/pos = Vector2( 90, 70 )
 
 [node name="pos_2" parent="letter_container" groups=[
 "pos_2",
-] instance=ExtResource( 8 )]
+] instance=ExtResource( 9 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 90, 290 )
@@ -161,7 +169,7 @@ transform/pos = Vector2( 90, 290 )
 
 [node name="pos_3" parent="letter_container" groups=[
 "pos_3",
-] instance=ExtResource( 8 )]
+] instance=ExtResource( 9 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 90, 530 )
@@ -176,34 +184,62 @@ editor/display_folded = true
 
 [node name="pos_1" parent="object_container" groups=[
 "pos_1",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 10 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 900, 130 )
 transform/scale = Vector2( 1.4375, 1.4375 )
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 
 [node name="pos_2" parent="object_container" groups=[
 "pos_2",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 10 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 900, 350 )
 transform/scale = Vector2( 1.4375, 1.59375 )
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 
 [node name="pos_3" parent="object_container" groups=[
 "pos_3",
-] instance=ExtResource( 9 )]
+] instance=ExtResource( 10 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 900, 590 )
 transform/scale = Vector2( 1.4375, 1.59375 )
-script/script = ExtResource( 10 )
+script/script = ExtResource( 11 )
 
-[node name="Node2D" parent="." instance=ExtResource( 11 )]
+[node name="Node2D" parent="." instance=ExtResource( 12 )]
 
 visibility/visible = false
-range/max = 1.0
-range/step = 0.01
+
+[node name="connect_song" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 13 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 1.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="return" type="TextureButton" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = -10.0
+margin/right = 100.0
+margin/bottom = 90.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 14 )
+params/resize_mode = 0
+params/stretch_mode = 0
 
 [connection signal="area_enter" from="object_container/pos_1" to="object_container/pos_1" method="_on_pos_1_area_enter"]
 
@@ -211,8 +247,12 @@ range/step = 0.01
 
 [connection signal="area_enter" from="object_container/pos_3" to="object_container/pos_3" method="_on_pos_3_area_enter"]
 
+[connection signal="pressed" from="return" to="." method="_on_return_pressed"]
+
 
 [editable path="letter_container/pos_1"]
 [editable path="letter_container/pos_2"]
 [editable path="letter_container/pos_3"]
+[editable path="object_container/pos_1"]
 [editable path="object_container/pos_2"]
+[editable path="object_container/pos_3"]
