@@ -15,10 +15,10 @@ func _ready():
 	loadbar.set_value(0)
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
-#	
-#	if (Globals.has_singleton("bbAdmob")):
-#		admob = Globals.get_singleton("bbAdmob")
-#		admob.init_admob_test(get_instance_ID(), admob_banner_id, admob_inter_id, false)
+	
+	if (Globals.has_singleton("bbAdmob")):
+		admob = Globals.get_singleton("bbAdmob")
+		admob.init_admob_test(get_instance_ID(), admob_banner_id, admob_inter_id, false)
 
 func goto_scene(path): # game requests to switch to this scene
     loader = ResourceLoader.load_interactive(path)

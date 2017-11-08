@@ -31,6 +31,8 @@ func _on_pos_2_area_enter( area ):
 		global.score+=1
 		area.get_parent().queue_free()
 		queue_free()
+	else:
+		printt(area.get_name())
 	pass # replace with function body
 
 

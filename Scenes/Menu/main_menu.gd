@@ -14,13 +14,13 @@ func _ready():
 	current_scene = root.get_child(root.get_child_count() -1)
 	printt(admob)
 	
-#	if (Globals.has_singleton("bbAdmob")):
-#		admob = Globals.get_singleton("bbAdmob")
-#		admob.init_admob_banner_test(get_instance_ID(), admob_banner_id, false)
-#		admob.init_admob_test(get_instance_ID(), admob_banner_id, admob_inter_id, false)
-#	
-#	if (admob != null):
-#		admob.show_banner()
+	if (Globals.has_singleton("bbAdmob")):
+		admob = Globals.get_singleton("bbAdmob")
+		admob.init_admob_banner_test(get_instance_ID(), admob_banner_id, false)
+		admob.init_admob_test(get_instance_ID(), admob_banner_id, admob_inter_id, false)
+	
+	if (admob != null):
+		admob.show_banner()
 
 func _on_btn_connect_pressed():
 	if (admob != null):

@@ -28,14 +28,24 @@ func _ready():
 	objects = _preload_resources("res://Assets/Sprites/Elements")
 	unions = _preload_resources("res://Assets/Sprites/UnionsLetters")
 	
+	ad_control.lettercompare = letters #initialize array for comparison
+	
 	_hide_unions()
 	var y = 120
 	var i = 0
-	var arr = [50]
+	var arr = Array() #control the raffle position
+	
+	#initialize error array with 0
+	if ad_control.error.empty():
+		for i in range(ad_control.lettercompare.size()):
+			printt(ad_control.error.size())
+			ad_control.error.append(0)
+	
 	while (i < 3):
 		#raffle
 		randomize()
-		var x = randi()%5
+		var x = randi()%(letters.size())
+		
 		#verify
 		if arr.find(x) == -1:
 			#create
@@ -43,6 +53,8 @@ func _ready():
 			_create_object(objects[x],i)
 			i+=1
 			y+=200
+#			ad_control.high[x]+=1
+#			printt(ad_control.high)
 			arr.append(x)
 	pass
 

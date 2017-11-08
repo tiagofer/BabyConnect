@@ -20,6 +20,8 @@ func _on_pos_1_area_enter( area ):
 		global.score+=1
 		area.get_parent().queue_free()
 		queue_free()
+	else:
+		_error_calc(area)
 	pass # replace with function body
 
 
@@ -31,6 +33,8 @@ func _on_pos_2_area_enter( area ):
 		global.score+=1
 		area.get_parent().queue_free()
 		queue_free()
+	else:
+		_error_calc(area)
 	pass # replace with function body
 
 
@@ -42,4 +46,13 @@ func _on_pos_3_area_enter( area ):
 		global.score+=1
 		area.get_parent().queue_free()
 		queue_free()
+	else:
+		_error_calc(area)
 	pass # replace with function body
+
+#get the texture on collisor and find index in the lettercompare array
+#increment error array with the index
+func _error_calc(var area):
+	var index = ad_control.lettercompare.find(area.get_parent().get_texture())
+	ad_control.error[index]+=1
+	printt(ad_control.error)

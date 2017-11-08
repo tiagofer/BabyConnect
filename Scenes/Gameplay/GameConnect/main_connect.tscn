@@ -144,12 +144,11 @@ stream/buffering_ms = 500
 
 [node name="letter_container" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="pos_1" parent="letter_container" groups=[
 "pos_1",
 ] instance=ExtResource( 9 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 90, 70 )
 
 [node name="collision_shape" parent="letter_container/pos_1" groups=[
@@ -179,8 +178,6 @@ transform/pos = Vector2( 90, 530 )
 ]]
 
 [node name="object_container" type="Node2D" parent="."]
-
-editor/display_folded = true
 
 [node name="pos_1" parent="object_container" groups=[
 "pos_1",
