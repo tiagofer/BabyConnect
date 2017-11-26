@@ -6,19 +6,11 @@ var time_max = 100 # msec
 var loadbar
 var current_scene
 
-var admob = null
-var admob_banner_id = "ca-app-pub-6404552898440853/1679268287"
-var admob_inter_id = "ca-app-pub-6404552898440853/6733952711"
-
 func _ready():
 	loadbar = get_node("progress")
 	loadbar.set_value(0)
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() -1)
-	
-	if (Globals.has_singleton("bbAdmob")):
-		admob = Globals.get_singleton("bbAdmob")
-		admob.init_admob_test(get_instance_ID(), admob_banner_id, admob_inter_id, false)
 
 func goto_scene(path): # game requests to switch to this scene
     loader = ResourceLoader.load_interactive(path)
@@ -69,7 +61,4 @@ func set_new_scene(scene_resource):
     current_scene = scene_resource.instance()
     get_node("/root").add_child(current_scene)
     ad_control.count_interstitial+=1
-    if (admob != null and ad_control.count_interstitial >= 20):
-    	admob.show_interstitial()
-    	ad_control.count_interstitial = 0
     

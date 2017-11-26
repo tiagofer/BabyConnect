@@ -103,6 +103,8 @@ script/script = ExtResource( 4 )
 
 [node name="container" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="pos_1" type="Sprite" parent="container"]
 
 transform/pos = Vector2( 1150, 130 )
@@ -144,11 +146,12 @@ stream/buffering_ms = 500
 
 [node name="letter_container" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="pos_1" parent="letter_container" groups=[
 "pos_1",
 ] instance=ExtResource( 9 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 90, 70 )
 
 [node name="collision_shape" parent="letter_container/pos_1" groups=[
@@ -179,13 +182,14 @@ transform/pos = Vector2( 90, 530 )
 
 [node name="object_container" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="pos_1" parent="object_container" groups=[
 "pos_1",
 ] instance=ExtResource( 10 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 900, 130 )
-transform/scale = Vector2( 1.4375, 1.4375 )
 script/script = ExtResource( 11 )
 
 [node name="pos_2" parent="object_container" groups=[
@@ -194,7 +198,6 @@ script/script = ExtResource( 11 )
 
 editor/display_folded = true
 transform/pos = Vector2( 900, 350 )
-transform/scale = Vector2( 1.4375, 1.59375 )
 script/script = ExtResource( 11 )
 
 [node name="pos_3" parent="object_container" groups=[
@@ -203,7 +206,6 @@ script/script = ExtResource( 11 )
 
 editor/display_folded = true
 transform/pos = Vector2( 900, 590 )
-transform/scale = Vector2( 1.4375, 1.59375 )
 script/script = ExtResource( 11 )
 
 [node name="Node2D" parent="." instance=ExtResource( 12 )]

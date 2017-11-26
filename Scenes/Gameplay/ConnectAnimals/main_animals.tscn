@@ -104,6 +104,8 @@ script/script = ExtResource( 4 )
 
 [node name="container" type="Node2D" parent="."]
 
+editor/display_folded = true
+
 [node name="pos_1" type="Sprite" parent="container"]
 
 transform/pos = Vector2( 1150, 130 )
@@ -143,39 +145,49 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="letter_container" type="Node2D" parent="."]
+[node name="animals_container" type="Node2D" parent="."]
 
-editor/display_folded = true
-
-[node name="pos_1" parent="letter_container" groups=[
+[node name="pos_1" parent="animals_container" groups=[
 "pos_1",
 ] instance=ExtResource( 9 )]
 
+editor/display_folded = true
 transform/pos = Vector2( 90, 70 )
 
-[node name="collision_shape" parent="letter_container/pos_1" groups=[
+[node name="collision_shape" parent="animals_container/pos_1" groups=[
 "pos_1",
 ]]
 
-[node name="pos_2" parent="letter_container" groups=[
+[node name="CollisionShape2D" parent="animals_container/pos_1/collision_shape" groups=[
+"pos_1",
+]]
+
+[node name="pos_2" parent="animals_container" groups=[
 "pos_2",
 ] instance=ExtResource( 9 )]
 
 editor/display_folded = true
 transform/pos = Vector2( 90, 290 )
 
-[node name="collision_shape" parent="letter_container/pos_2" groups=[
+[node name="collision_shape" parent="animals_container/pos_2" groups=[
 "pos_2",
 ]]
 
-[node name="pos_3" parent="letter_container" groups=[
+[node name="CollisionShape2D" parent="animals_container/pos_2/collision_shape" groups=[
+"pos_2",
+]]
+
+[node name="pos_3" parent="animals_container" groups=[
 "pos_3",
 ] instance=ExtResource( 9 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 90, 530 )
 
-[node name="collision_shape" parent="letter_container/pos_3" groups=[
+[node name="collision_shape" parent="animals_container/pos_3" groups=[
+"pos_3",
+]]
+
+[node name="CollisionShape2D" parent="animals_container/pos_3/collision_shape" groups=[
 "pos_3",
 ]]
 
@@ -187,25 +199,34 @@ editor/display_folded = true
 "pos_1",
 ] instance=ExtResource( 10 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 900, 130 )
 script/script = ExtResource( 11 )
+
+[node name="collision_shape" parent="object_container/pos_1" groups=[
+"pos_1",
+]]
 
 [node name="pos_2" parent="object_container" groups=[
 "pos_2",
 ] instance=ExtResource( 10 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 900, 350 )
 script/script = ExtResource( 11 )
+
+[node name="collision_shape" parent="object_container/pos_2" groups=[
+"pos_2",
+]]
 
 [node name="pos_3" parent="object_container" groups=[
 "pos_3",
 ] instance=ExtResource( 10 )]
 
-editor/display_folded = true
 transform/pos = Vector2( 900, 590 )
 script/script = ExtResource( 11 )
+
+[node name="collision_shape" parent="object_container/pos_3" groups=[
+"pos_3",
+]]
 
 [node name="Node2D" parent="." instance=ExtResource( 12 )]
 
@@ -248,9 +269,9 @@ stream/buffering_ms = 500
 [connection signal="pressed" from="return" to="." method="_on_return_pressed"]
 
 
-[editable path="letter_container/pos_1"]
-[editable path="letter_container/pos_2"]
-[editable path="letter_container/pos_3"]
+[editable path="animals_container/pos_1"]
+[editable path="animals_container/pos_2"]
+[editable path="animals_container/pos_3"]
 [editable path="object_container/pos_1"]
 [editable path="object_container/pos_2"]
 [editable path="object_container/pos_3"]

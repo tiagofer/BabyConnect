@@ -1,16 +1,20 @@
-[gd_scene load_steps=12 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://Scenes/Options/options.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Backgrounds/menu_background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/GUI/return.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/GUI/rank1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Sprites/GUI/spr_star.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Sprites/GUI/rank2.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Sprites/GUI/rank3.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Sprites/Letters/abacaxi.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Letters/ovo.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Sprites/Letters/indio.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Sprites/GUI/top_letras.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Letters/abacaxi.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/GUI/rank1.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Letters/boneca.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Letters/casa.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Letters/dinossauro.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Letters/elephant.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Letters/flor.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Letters/gato.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Letters/indio.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sprites/Letters/ovo.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/Letters/uva.png" type="Texture" id=14]
+[ext_resource path="res://Assets/Sprites/GUI/top_letras.png" type="Texture" id=15]
 
 [node name="options" type="CanvasLayer"]
 
@@ -53,28 +57,28 @@ textures/normal = ExtResource( 3 )
 params/resize_mode = 0
 params/stretch_mode = 0
 
-[node name="Control" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 660.0
-margin/top = 80.0
-margin/right = 700.0
-margin/bottom = 120.0
-
-[node name="progress1" type="TextureProgress" parent="Control"]
+[node name="letters" type="Node2D" parent="."]
 
 editor/display_folded = true
+transform/pos = Vector2( 270, 220 )
+
+[node name="a" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( -180, -30 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/a"]
+
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -224.0
-margin/top = 106.0
-margin/right = 276.0
-margin/bottom = 170.0
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
@@ -84,101 +88,765 @@ range/exp_edit = false
 range/rounded = false
 texture/under = null
 texture/over = null
-texture/progress = ExtResource( 4 )
+texture/progress = ExtResource( 5 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="Control/progress1"]
-
-transform/pos = Vector2( 564, 24 )
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 5 )
-
-[node name="progress2" type="TextureProgress" parent="Control"]
+[node name="b" type="Sprite" parent="letters"]
 
 editor/display_folded = true
+transform/pos = Vector2( 50, -30 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 6 )
+
+[node name="progress1" type="TextureProgress" parent="letters/b"]
+
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -220.0
-margin/top = 290.0
-margin/right = 280.0
-margin/bottom = 354.0
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
 range/page = 0.0
-range/value = 60.0
+range/value = 100.0
 range/exp_edit = false
 range/rounded = false
 texture/under = null
 texture/over = null
-texture/progress = ExtResource( 6 )
+texture/progress = ExtResource( 5 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="Control/progress2"]
-
-transform/pos = Vector2( 564, 24 )
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 5 )
-
-[node name="progress3" type="TextureProgress" parent="Control"]
+[node name="c" type="Sprite" parent="letters"]
 
 editor/display_folded = true
+transform/pos = Vector2( 280, -30 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 7 )
+
+[node name="progress1" type="TextureProgress" parent="letters/c"]
+
 focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = -210.0
-margin/top = 460.0
-margin/right = 290.0
-margin/bottom = 524.0
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
 range/min = 0.0
 range/max = 100.0
 range/step = 1.0
 range/page = 0.0
-range/value = 20.0
+range/value = 100.0
 range/exp_edit = false
 range/rounded = false
 texture/under = null
 texture/over = null
-texture/progress = ExtResource( 7 )
+texture/progress = ExtResource( 5 )
 radial_fill/fill_degrees = 360.0
 radial_fill/center_offset = Vector2( 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="Control/progress3"]
-
-transform/pos = Vector2( 564, 24 )
-transform/scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 5 )
-
-[node name="letters" type="Node2D" parent="."]
+[node name="d" type="Sprite" parent="letters"]
 
 editor/display_folded = true
-transform/pos = Vector2( 270, 220 )
-
-[node name="letter1" type="Sprite" parent="letters"]
-
-transform/pos = Vector2( 67, 0 )
+transform/pos = Vector2( 520, -30 )
+transform/scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 8 )
 
-[node name="letter2" type="Sprite" parent="letters"]
+[node name="progress1" type="TextureProgress" parent="letters/d"]
 
-transform/pos = Vector2( 67, 180 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="e" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 770, -30 )
+transform/scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 9 )
 
-[node name="letter3" type="Sprite" parent="letters"]
+[node name="progress1" type="TextureProgress" parent="letters/e"]
 
-transform/pos = Vector2( 67, 360 )
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="f" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( -180.8, 59.2 )
+transform/scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 10 )
+
+[node name="progress1" type="TextureProgress" parent="letters/f"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="g" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 49.2, 59.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 11 )
+
+[node name="progress1" type="TextureProgress" parent="letters/g"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="h" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 279.2, 59.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/h"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="i" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 519.2, 59.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 12 )
+
+[node name="progress1" type="TextureProgress" parent="letters/i"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="j" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 770, 60 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/j"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="k" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( -180.8, 149.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/k"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="l" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 49.2, 149.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/l"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="m" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 279.2, 149.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/m"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="n" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 520, 150 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/n"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="o" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 769.2, 149.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 13 )
+
+[node name="progress1" type="TextureProgress" parent="letters/o"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="p" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( -180.8, 239.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/p"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="q" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 49.2, 239.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/q"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="r" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 279.2, 239.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/r"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="s" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 520, 240 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/s"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="t" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 769.2, 239.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/t"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="u" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( -180.8, 329.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 14 )
+
+[node name="progress1" type="TextureProgress" parent="letters/u"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="v" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 49.2, 329.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/v"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="w" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 769.2, 329.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/w"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="x" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 279.2, 329.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/x"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="y" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( -180, 410 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/y"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
+
+[node name="z" type="Sprite" parent="letters"]
+
+editor/display_folded = true
+transform/pos = Vector2( 519.2, 329.2 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 4 )
+
+[node name="progress1" type="TextureProgress" parent="letters/z"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 103.696
+margin/top = -36.7257
+margin/right = 603.696
+margin/bottom = 27.2743
+range/min = 0.0
+range/max = 100.0
+range/step = 1.0
+range/page = 0.0
+range/value = 100.0
+range/exp_edit = false
+range/rounded = false
+texture/under = null
+texture/over = null
+texture/progress = ExtResource( 5 )
+radial_fill/fill_degrees = 360.0
+radial_fill/center_offset = Vector2( 0, 0 )
 
 [node name="top_letras" type="Sprite" parent="."]
 
 transform/pos = Vector2( 670, 80 )
 transform/scale = Vector2( 1.35938, 1.35938 )
-texture = ExtResource( 11 )
+texture = ExtResource( 15 )
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 

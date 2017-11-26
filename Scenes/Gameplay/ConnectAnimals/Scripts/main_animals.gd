@@ -1,9 +1,9 @@
 extends Control
 
 #CONTAINERS NODES
-onready var letter1 = get_node("letter_container/pos_1")
-onready var letter2 = get_node("letter_container/pos_2")
-onready var letter3 = get_node("letter_container/pos_3")
+onready var anim1 = get_node("animals_container/pos_1")
+onready var anim2 = get_node("animals_container/pos_2")
+onready var anim3 = get_node("animals_container/pos_3")
 
 onready var obj1 = get_node("object_container/pos_1").get_child(1)
 onready var obj2 = get_node("object_container/pos_2").get_child(1)
@@ -14,12 +14,8 @@ onready var pos_2 = get_node("/root/Control/container/pos_2")
 onready var pos_3 = get_node("/root/Control/container/pos_3")
 
 
-#var letters = [let_a, let_e, let_i, let_o, let_u]
-#var objects = [obj_a, obj_e, obj_i, obj_o, obj_u]
-#var unions = [cn_a, cn_e, cn_i,cn_o, cn_u] 
-
-var letters = Array()
-var objects = Array()
+var animals = Array()
+var shadows = Array()
 var unions = Array()
 
 var random_y = [140, 370, 600] 
@@ -27,42 +23,47 @@ var random_y = [140, 370, 600]
 func _ready():
 	#reset points
 	global.score = 0
-	letters = _preload_resources("res://Assets/Sprites/ConnectAnimals/Normal")
-	objects = _preload_resources("res://Assets/Sprites/ConnectAnimals/Shadows")
+	animals = _preload_resources("res://Assets/Sprites/ConnectAnimals/Normal")
+	shadows = _preload_resources("res://Assets/Sprites/ConnectAnimals/Shadows")
 	unions = _preload_resources("res://Assets/Sprites/ConnectAnimals/Unions")
+	
 	_hide_unions()
+	
 	var y = 120
 	var i = 0
 	var arr = Array()
+	
+	ad_control.animals_compare = animals
+	
 	while (i < 3):
 		#raffle
 		randomize()
-		var x = randi()%(letters.size()-1)
+		var x = randi()%(animals.size())
 		#verify
 		if arr.find(x) == -1:
 			#create
-			_create_letter(letters[x],unions[x],y,i)
-			_create_object(objects[x],i)
+			_create_animals(animals[x],unions[x],y,i)
+			_create_shadows(shadows[x],i)
 			i+=1
 			y+=200
 			arr.append(x)
 	pass
 
 #obj is a sprite resource and value is a position
-func _create_letter(obj,unions,value,index):
+func _create_animals(obj,unions,value,index):
 	if index == 0:
-		letter1.set_texture(obj)
+		anim1.set_texture(obj)
 		pos_1.set_texture(unions)
 	elif index == 1:
-		letter2.set_texture(obj)
+		anim2.set_texture(obj)
 		pos_2.set_texture(unions)
 	else:
-		letter3.set_texture(obj)
+		anim3.set_texture(obj)
 		pos_3.set_texture(unions)
 	pass
 	
 #create a object in the random position indicated in the pos_obj array
-func _create_object(obj,index):
+func _create_shadows(obj,index):
 	randomize()
 	var x = randi()%random_y.size()
 	if index == 0:

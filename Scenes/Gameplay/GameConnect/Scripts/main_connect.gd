@@ -22,24 +22,22 @@ var random_y = [140, 370, 600]
 
 func _ready():
 	
+	ad_control.is_played = true
 	#reset points
 	global.score = 0
 	letters = _preload_resources("res://Assets/Sprites/Letters")
 	objects = _preload_resources("res://Assets/Sprites/Elements")
 	unions = _preload_resources("res://Assets/Sprites/UnionsLetters")
 	
+	printt(letters.size())
 	ad_control.lettercompare = letters #initialize array for comparison
+
+	_initialize_score()
 	
 	_hide_unions()
 	var y = 120
 	var i = 0
 	var arr = Array() #control the raffle position
-	
-	#initialize error array with 0
-	if ad_control.error.empty():
-		for i in range(ad_control.lettercompare.size()):
-			printt(ad_control.error.size())
-			ad_control.error.append(0)
 	
 	while (i < 3):
 		#raffle
@@ -98,16 +96,26 @@ func _on_return_pressed():
 	
 
 func _preload_resources(var dirPath):
-	var resource = Array()
-	var dir = Directory.new()
-	dir.open(dirPath)
-	dir.list_dir_begin()
-	var file_name = dir.get_next()
-	while(file_name!=""): 
-		if dir.current_is_dir():
-			pass
-		else:
-			var obj = load(dirPath+"/"+file_name)
-			resource.append(obj)
-		file_name = dir.get_next()
-	return resource
+	if ad_control.language == 0:
+		var resource = Array()
+		var dir = Directory.new()
+		dir.open(dirPath)
+		dir.list_dir_begin()
+		var file_name = dir.get_next()
+		while(file_name!=""): 
+			if dir.current_is_dir():
+				pass
+			else:
+				var obj = load(dirPath+"/"+file_name)
+				resource.append(obj)
+			file_name = dir.get_next()
+		return resource
+
+func _initialize_score():
+	#initialize error array with 0
+	if ad_control.error.empty() and ad_control.correct.empty():
+		for i in range(ad_control.lettercompare.size()):
+			ad_control.correct.append(0)
+			ad_control.error.append(0)
+			ad_control.score.append(0)
+	
