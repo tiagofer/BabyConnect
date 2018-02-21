@@ -1,14 +1,52 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Scenes/Menu/main_menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Backgrounds/menu_background.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Sprites/GUI/medal2.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Menu/Cloud.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Sprites/GUI/spr_gametittle.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/GUI/sprt_gametitlechristimas.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Sprites/GUI/spr_btnconnect.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/GUI/spr_btnmemory.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Music/menu_song.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Scenes/Loading/Scripts/save_game.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Menu/language_select.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Sprites/GUI/snow.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/Menu/icon_language.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Sprites/GUI/en_us.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sprites/GUI/pt_br.png" type="Texture" id=14]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "anim_pt"
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("pt_br:rect/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+
+length = 0.6
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("en_us:rect/scale")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = {
+"times": FloatArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": FloatArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 0.8, 0.8 ), Vector2( 1, 1 ) ]
+}
 
 [node name="main_menu" type="Control"]
 
@@ -57,12 +95,12 @@ params/stretch_mode = 0
 
 [node name="titlle" type="Sprite" parent="."]
 
-transform/pos = Vector2( 640, 190 )
+transform/pos = Vector2( 636.985, 244.971 )
 texture = ExtResource( 5 )
 
 [node name="btn_connect" type="TouchScreenButton" parent="."]
 
-transform/pos = Vector2( 360, 410 )
+transform/pos = Vector2( 360, 440 )
 transform/scale = Vector2( 1.1, 1.1 )
 normal = ExtResource( 6 )
 pressed = null
@@ -76,7 +114,7 @@ visibility_mode = 0
 
 [node name="btn_memory" type="TouchScreenButton" parent="."]
 
-transform/pos = Vector2( 800, 410 )
+transform/pos = Vector2( 800, 440 )
 transform/scale = Vector2( 1.1, 1.1 )
 normal = ExtResource( 7 )
 pressed = null
@@ -101,12 +139,138 @@ stream/buffering_ms = 500
 
 [node name="save_game" type="Node2D" parent="."]
 
+transform/pos = Vector2( 138.675, -70.8449 )
 script/script = ExtResource( 9 )
+
+[node name="language_select" parent="." instance=ExtResource( 10 )]
+
+visibility/visible = false
+
+[node name="Christimas_update" type="Node2D" parent="."]
+
+[node name="snow" type="Particles2D" parent="Christimas_update"]
+
+transform/pos = Vector2( 160.212, -44.7139 )
+transform/scale = Vector2( 0.177863, 0.2 )
+config/amount = 255
+config/lifetime = 65.5577
+config/time_scale = 3.45941
+config/process_mode = 1
+config/texture = ExtResource( 11 )
+params/direction = 360.0
+params/spread = 180.0
+params/linear_velocity = 50.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.71
+color/color = Color( 1, 1, 1, 0.721333 )
+
+[node name="snow1" type="Particles2D" parent="Christimas_update"]
+
+transform/pos = Vector2( 952.124, -22.1577 )
+transform/scale = Vector2( 0.177863, 0.2 )
+config/amount = 255
+config/lifetime = 65.5577
+config/time_scale = 3.45941
+config/process_mode = 1
+config/texture = ExtResource( 11 )
+params/direction = 360.0
+params/spread = 180.0
+params/linear_velocity = 50.0
+params/spin_velocity = 0.0
+params/orbit_velocity = 0.0
+params/gravity_direction = 0.0
+params/gravity_strength = 1.0
+params/radial_accel = 0.0
+params/tangential_accel = 0.0
+params/damping = 0.0
+params/initial_angle = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
+params/hue_variation = 0.0
+params/anim_speed_scale = 1.0
+params/anim_initial_pos = 0.0
+randomness/direction = 0.71
+color/color = Color( 1, 1, 1, 0.721333 )
+
+[node name="language_icons" type="Control" parent="."]
+
+editor/display_folded = true
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+script/script = ExtResource( 12 )
+
+[node name="en_us" type="TextureButton" parent="language_icons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1060.0
+margin/top = 19.0
+margin/right = 1135.0
+margin/bottom = 72.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 13 )
+params/resize_mode = 1
+params/stretch_mode = 6
+
+[node name="pt_br" type="TextureButton" parent="language_icons"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 1160.0
+margin/top = 15.0
+margin/right = 1240.0
+margin/bottom = 72.0
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+textures/normal = ExtResource( 14 )
+params/resize_mode = 1
+params/stretch_mode = 0
+
+[node name="btn_press" type="AnimationPlayer" parent="language_icons"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/anim_pt = SubResource( 1 )
+anims/anim_us = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_TextureButton_pressed"]
 
 [connection signal="pressed" from="btn_connect" to="." method="_on_btn_connect_pressed"]
 
 [connection signal="pressed" from="btn_memory" to="." method="_on_btn_memory_pressed"]
+
+[connection signal="pressed" from="language_icons/en_us" to="language_icons" method="_on_en_us_pressed"]
+
+[connection signal="pressed" from="language_icons/pt_br" to="language_icons" method="_on_pt_br_pressed"]
 
 

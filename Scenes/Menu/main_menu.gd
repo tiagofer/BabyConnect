@@ -47,5 +47,5 @@ func _on_TextureButton_pressed():
 
 func loadBanner():
 	if (admob != null):
-		printt("loading...")
+#		printt("loading...")
 		admob.loadBanner(adBannerId,false,true)
